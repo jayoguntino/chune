@@ -1,0 +1,903 @@
+ Positioned(
+            top: 50,
+            child: Container(width: 390, height: 61, color: Colors.green),
+          ),
+          
+          
+          
+          
+           Widget HomePost(profileImage, username, albumArt, songName, artistName) {
+    return Container(
+      padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
+      child: Column(
+        children: <Widget>[
+          Row(
+            children: [
+              CircleAvatar(
+                backgroundImage: AssetImage('$profileImage'),
+                radius: 17,
+              ),
+              SizedBox(
+                width: 10,
+              ), //Profile Image
+              Text(
+                '$username',
+                style: TextStyle(
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 16),
+              ), //Username
+              SizedBox(
+                height: 50,
+              )
+            ],
+          ),
+          ClipRRect(
+            borderRadius: BorderRadius.circular(12.0),
+            child: Image.asset(
+              '$albumArt',
+              height: 370,
+              width: 370,
+            ),
+          ), //Album art
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 20.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  '$songName',
+                  style: TextStyle(
+                      color: Colors.blue,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16),
+                ), //Song Name/Artist
+
+                Row(
+                  children: [
+                    Text(
+                      '$_counter',
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16),
+                    ),
+                    TextButton(
+                        child: Icon(Icons.favorite,
+                            color: liked ? Colors.red : Colors.grey),
+                        onPressed: () {
+                          liked ? _counter-- : _counter++;
+
+                          setState(() {
+                            liked = !liked;
+                          });
+                        }),
+                  ],
+                ),
+              ],
+
+              //Liked Icon
+            ),
+          ),
+          SizedBox(
+            width: 30,
+          ),
+          Row(
+            children: [
+              SizedBox(width: 20),
+              Text(
+                '$artistName',
+                style: TextStyle(
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 12),
+              ), //Song Name/Artist
+            ],
+          ),
+          SizedBox(
+            height: 30,
+          ),
+        ],
+      ),
+    );
+  }
+
+
+
+
+  /*
+
+
+SingleChildScrollView(
+        child: Column(
+          children: [
+            Row(children: [
+              Container(
+                  width: 190,
+                  height: 300,
+                  padding: new EdgeInsets.fromLTRB(10, 10, 0, 10),
+                  child: Card(
+                    elevation: 0,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(7.0),
+                      side: BorderSide(
+                        color: Colors.blue,
+                        width: 1,
+                      ),
+                    ),
+                    child: Column(
+                      children: [
+                        SizedBox(
+                          height: 20.0,
+                        ),
+                        CircleAvatar(
+                          backgroundColor: Colors.grey[300],
+                          radius: 35,
+                        ),
+                        SizedBox(
+                          height: 10.0,
+                        ),
+                        Text(
+                          'username',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 21,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 5.0,
+                        ),
+                        Text(
+                          '372 songs posted',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 16,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 30.0,
+                        ),
+                        Container(
+                          padding: EdgeInsets.fromLTRB(30, 0, 30, 0),
+                          decoration: BoxDecoration(
+                              border: Border.all(
+                                width: 1,
+                                color: Colors.blue,
+                              ),
+                              borderRadius: const BorderRadius.all(
+                                  const Radius.circular(100))),
+                          child: TextButton(
+                            onPressed: () {},
+                            child:
+                                Text('Follow', style: TextStyle(fontSize: 21)),
+                          ),
+                        ),
+                      ],
+                    ),
+                  )),
+              Container(
+                  width: 190,
+                  height: 300,
+                  padding: new EdgeInsets.fromLTRB(10, 10, 0, 10),
+                  child: Card(
+                    elevation: 0,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(7.0),
+                      side: BorderSide(
+                        color: Colors.blue,
+                        width: 1,
+                      ),
+                    ),
+                    child: Column(
+                      children: [
+                        SizedBox(
+                          height: 20.0,
+                        ),
+                        CircleAvatar(
+                          backgroundColor: Colors.grey[300],
+                          radius: 35,
+                        ),
+                        SizedBox(
+                          height: 10.0,
+                        ),
+                        Text(
+                          'username',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 21,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 5.0,
+                        ),
+                        Text(
+                          '372 songs posted',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 16,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 30.0,
+                        ),
+                        Container(
+                          padding: EdgeInsets.fromLTRB(30, 0, 30, 0),
+                          decoration: BoxDecoration(
+                              border: Border.all(
+                                width: 1,
+                                color: Colors.blue,
+                              ),
+                              borderRadius: const BorderRadius.all(
+                                  const Radius.circular(100))),
+                          child: TextButton(
+                            onPressed: () {},
+                            child:
+                                Text('Follow', style: TextStyle(fontSize: 21)),
+                          ),
+                        ),
+                      ],
+                    ),
+                  )),
+              //SizedBox(height: 10)
+            ]),
+            Row(children: [
+              Container(
+                  width: 190,
+                  height: 300,
+                  padding: new EdgeInsets.fromLTRB(10, 10, 0, 10),
+                  child: Card(
+                    elevation: 0,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(7.0),
+                      side: BorderSide(
+                        color: Colors.blue,
+                        width: 1,
+                      ),
+                    ),
+                    child: Column(
+                      children: [
+                        SizedBox(
+                          height: 20.0,
+                        ),
+                        CircleAvatar(
+                          backgroundColor: Colors.grey[300],
+                          radius: 35,
+                        ),
+                        SizedBox(
+                          height: 10.0,
+                        ),
+                        Text(
+                          'username',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 21,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 5.0,
+                        ),
+                        Text(
+                          '372 songs posted',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 16,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 30.0,
+                        ),
+                        Container(
+                          padding: EdgeInsets.fromLTRB(30, 0, 30, 0),
+                          decoration: BoxDecoration(
+                              border: Border.all(
+                                width: 1,
+                                color: Colors.blue,
+                              ),
+                              borderRadius: const BorderRadius.all(
+                                  const Radius.circular(100))),
+                          child: TextButton(
+                            onPressed: () {},
+                            child:
+                                Text('Follow', style: TextStyle(fontSize: 21)),
+                          ),
+                        ),
+                      ],
+                    ),
+                  )),
+              Container(
+                  width: 190,
+                  height: 300,
+                  padding: new EdgeInsets.fromLTRB(10, 10, 0, 10),
+                  child: Card(
+                    elevation: 0,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(7.0),
+                      side: BorderSide(
+                        color: Colors.blue,
+                        width: 1,
+                      ),
+                    ),
+                    child: Column(
+                      children: [
+                        SizedBox(
+                          height: 20.0,
+                        ),
+                        CircleAvatar(
+                          backgroundColor: Colors.grey[300],
+                          radius: 35,
+                        ),
+                        SizedBox(
+                          height: 10.0,
+                        ),
+                        Text(
+                          'username',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 21,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 5.0,
+                        ),
+                        Text(
+                          '372 songs posted',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 16,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 30.0,
+                        ),
+                        Container(
+                          padding: EdgeInsets.fromLTRB(30, 0, 30, 0),
+                          decoration: BoxDecoration(
+                              border: Border.all(
+                                width: 1,
+                                color: Colors.blue,
+                              ),
+                              borderRadius: const BorderRadius.all(
+                                  const Radius.circular(100))),
+                          child: TextButton(
+                            onPressed: () {},
+                            child:
+                                Text('Follow', style: TextStyle(fontSize: 21)),
+                          ),
+                        ),
+                      ],
+                    ),
+                  )),
+            ]),
+            Row(children: [
+              Container(
+                  width: 190,
+                  height: 300,
+                  padding: new EdgeInsets.fromLTRB(10, 10, 0, 10),
+                  child: Card(
+                    elevation: 0,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(7.0),
+                      side: BorderSide(
+                        color: Colors.blue,
+                        width: 1,
+                      ),
+                    ),
+                    child: Column(
+                      children: [
+                        SizedBox(
+                          height: 20.0,
+                        ),
+                        CircleAvatar(
+                          backgroundColor: Colors.grey[300],
+                          radius: 35,
+                        ),
+                        SizedBox(
+                          height: 10.0,
+                        ),
+                        Text(
+                          'username',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 21,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 5.0,
+                        ),
+                        Text(
+                          '372 songs posted',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 16,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 30.0,
+                        ),
+                        Container(
+                          padding: EdgeInsets.fromLTRB(30, 0, 30, 0),
+                          decoration: BoxDecoration(
+                              border: Border.all(
+                                width: 1,
+                                color: Colors.blue,
+                              ),
+                              borderRadius: const BorderRadius.all(
+                                  const Radius.circular(100))),
+                          child: TextButton(
+                            onPressed: () {},
+                            child:
+                                Text('Follow', style: TextStyle(fontSize: 21)),
+                          ),
+                        ),
+                      ],
+                    ),
+                  )),
+              Container(
+                  width: 190,
+                  height: 300,
+                  padding: new EdgeInsets.fromLTRB(10, 10, 0, 10),
+                  child: Card(
+                    elevation: 0,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(7.0),
+                      side: BorderSide(
+                        color: Colors.blue,
+                        width: 1,
+                      ),
+                    ),
+                    child: Column(
+                      children: [
+                        SizedBox(
+                          height: 20.0,
+                        ),
+                        CircleAvatar(
+                          backgroundColor: Colors.grey[300],
+                          radius: 35,
+                        ),
+                        SizedBox(
+                          height: 10.0,
+                        ),
+                        Text(
+                          'username',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 21,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 5.0,
+                        ),
+                        Text(
+                          '372 songs posted',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 16,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 30.0,
+                        ),
+                        Container(
+                          padding: EdgeInsets.fromLTRB(30, 0, 30, 0),
+                          decoration: BoxDecoration(
+                              border: Border.all(
+                                width: 1,
+                                color: Colors.blue,
+                              ),
+                              borderRadius: const BorderRadius.all(
+                                  const Radius.circular(100))),
+                          child: TextButton(
+                            onPressed: () {},
+                            child:
+                                Text('Follow', style: TextStyle(fontSize: 21)),
+                          ),
+                        ),
+                      ],
+                    ),
+                  )),
+              SizedBox(height: 10)
+            ]),
+            Row(children: [
+              Container(
+                  width: 190,
+                  height: 300,
+                  padding: new EdgeInsets.fromLTRB(10, 10, 0, 10),
+                  child: Card(
+                    elevation: 0,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(7.0),
+                      side: BorderSide(
+                        color: Colors.blue,
+                        width: 1,
+                      ),
+                    ),
+                    child: Column(
+                      children: [
+                        SizedBox(
+                          height: 20.0,
+                        ),
+                        CircleAvatar(
+                          backgroundColor: Colors.grey[300],
+                          radius: 35,
+                        ),
+                        SizedBox(
+                          height: 10.0,
+                        ),
+                        Text(
+                          'username',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 21,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 5.0,
+                        ),
+                        Text(
+                          '372 songs posted',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 16,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 30.0,
+                        ),
+                        Container(
+                          padding: EdgeInsets.fromLTRB(30, 0, 30, 0),
+                          decoration: BoxDecoration(
+                              border: Border.all(
+                                width: 1,
+                                color: Colors.blue,
+                              ),
+                              borderRadius: const BorderRadius.all(
+                                  const Radius.circular(100))),
+                          child: TextButton(
+                            onPressed: () {},
+                            child:
+                                Text('Follow', style: TextStyle(fontSize: 21)),
+                          ),
+                        ),
+                      ],
+                    ),
+                  )),
+              Container(
+                  width: 190,
+                  height: 300,
+                  padding: new EdgeInsets.fromLTRB(10, 10, 0, 10),
+                  child: Card(
+                    elevation: 0,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(7.0),
+                      side: BorderSide(
+                        color: Colors.blue,
+                        width: 1,
+                      ),
+                    ),
+                    child: Column(
+                      children: [
+                        SizedBox(
+                          height: 20.0,
+                        ),
+                        CircleAvatar(
+                          backgroundColor: Colors.grey[300],
+                          radius: 35,
+                        ),
+                        SizedBox(
+                          height: 10.0,
+                        ),
+                        Text(
+                          'username',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 21,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 5.0,
+                        ),
+                        Text(
+                          '372 songs posted',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 16,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 30.0,
+                        ),
+                        Container(
+                          padding: EdgeInsets.fromLTRB(30, 0, 30, 0),
+                          decoration: BoxDecoration(
+                              border: Border.all(
+                                width: 1,
+                                color: Colors.blue,
+                              ),
+                              borderRadius: const BorderRadius.all(
+                                  const Radius.circular(100))),
+                          child: TextButton(
+                            onPressed: () {},
+                            child:
+                                Text('Follow', style: TextStyle(fontSize: 21)),
+                          ),
+                        ),
+                      ],
+                    ),
+                  )),
+              SizedBox(height: 10)
+            ]),
+            Row(children: [
+              Container(
+                  width: 190,
+                  height: 300,
+                  padding: new EdgeInsets.fromLTRB(10, 10, 0, 10),
+                  child: Card(
+                    elevation: 0,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(7.0),
+                      side: BorderSide(
+                        color: Colors.blue,
+                        width: 1,
+                      ),
+                    ),
+                    child: Column(
+                      children: [
+                        SizedBox(
+                          height: 20.0,
+                        ),
+                        CircleAvatar(
+                          backgroundColor: Colors.grey[300],
+                          radius: 35,
+                        ),
+                        SizedBox(
+                          height: 10.0,
+                        ),
+                        Text(
+                          'username',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 21,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 5.0,
+                        ),
+                        Text(
+                          '372 songs posted',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 16,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 30.0,
+                        ),
+                        Container(
+                          padding: EdgeInsets.fromLTRB(30, 0, 30, 0),
+                          decoration: BoxDecoration(
+                              border: Border.all(
+                                width: 1,
+                                color: Colors.blue,
+                              ),
+                              borderRadius: const BorderRadius.all(
+                                  const Radius.circular(100))),
+                          child: TextButton(
+                            onPressed: () {},
+                            child:
+                                Text('Follow', style: TextStyle(fontSize: 21)),
+                          ),
+                        ),
+                      ],
+                    ),
+                  )),
+              Container(
+                  width: 190,
+                  height: 300,
+                  padding: new EdgeInsets.fromLTRB(10, 10, 0, 10),
+                  child: Card(
+                    elevation: 0,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(7.0),
+                      side: BorderSide(
+                        color: Colors.blue,
+                        width: 1,
+                      ),
+                    ),
+                    child: Column(
+                      children: [
+                        SizedBox(
+                          height: 20.0,
+                        ),
+                        CircleAvatar(
+                          backgroundColor: Colors.grey[300],
+                          radius: 35,
+                        ),
+                        SizedBox(
+                          height: 10.0,
+                        ),
+                        Text(
+                          'username',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 21,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 5.0,
+                        ),
+                        Text(
+                          '372 songs posted',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 16,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 30.0,
+                        ),
+                        Container(
+                          padding: EdgeInsets.fromLTRB(30, 0, 30, 0),
+                          decoration: BoxDecoration(
+                              border: Border.all(
+                                width: 1,
+                                color: Colors.blue,
+                              ),
+                              borderRadius: const BorderRadius.all(
+                                  const Radius.circular(100))),
+                          child: TextButton(
+                            onPressed: () {},
+                            child:
+                                Text('Follow', style: TextStyle(fontSize: 21)),
+                          ),
+                        ),
+                      ],
+                    ),
+                  )),
+              SizedBox(height: 10)
+            ]),
+            Row(children: [
+              Container(
+                  width: 190,
+                  height: 300,
+                  padding: new EdgeInsets.fromLTRB(10, 10, 0, 10),
+                  child: Card(
+                    elevation: 0,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(7.0),
+                      side: BorderSide(
+                        color: Colors.blue,
+                        width: 1,
+                      ),
+                    ),
+                    child: Column(
+                      children: [
+                        SizedBox(
+                          height: 20.0,
+                        ),
+                        CircleAvatar(
+                          backgroundColor: Colors.grey[300],
+                          radius: 35,
+                        ),
+                        SizedBox(
+                          height: 10.0,
+                        ),
+                        Text(
+                          'username',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 21,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 5.0,
+                        ),
+                        Text(
+                          '372 songs posted',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 16,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 30.0,
+                        ),
+                        Container(
+                          padding: EdgeInsets.fromLTRB(30, 0, 30, 0),
+                          decoration: BoxDecoration(
+                              border: Border.all(
+                                width: 1,
+                                color: Colors.blue,
+                              ),
+                              borderRadius: const BorderRadius.all(
+                                  const Radius.circular(100))),
+                          child: TextButton(
+                            onPressed: () {},
+                            child:
+                                Text('Follow', style: TextStyle(fontSize: 21)),
+                          ),
+                        ),
+                      ],
+                    ),
+                  )),
+              Container(
+                  width: 190,
+                  height: 300,
+                  padding: new EdgeInsets.fromLTRB(10, 10, 0, 10),
+                  child: Card(
+                    elevation: 0,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(7.0),
+                      side: BorderSide(
+                        color: Colors.blue,
+                        width: 1,
+                      ),
+                    ),
+                    child: Column(
+                      children: [
+                        SizedBox(
+                          height: 20.0,
+                        ),
+                        CircleAvatar(
+                          backgroundColor: Colors.grey[300],
+                          radius: 35,
+                        ),
+                        SizedBox(
+                          height: 10.0,
+                        ),
+                        Text(
+                          'username',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 21,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 5.0,
+                        ),
+                        Text(
+                          '372 songs posted',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 16,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 30.0,
+                        ),
+                        Container(
+                          padding: EdgeInsets.fromLTRB(30, 0, 30, 0),
+                          decoration: BoxDecoration(
+                              border: Border.all(
+                                width: 1,
+                                color: Colors.blue,
+                              ),
+                              borderRadius: const BorderRadius.all(
+                                  const Radius.circular(100))),
+                          child: TextButton(
+                            onPressed: () {},
+                            child:
+                                Text('Follow', style: TextStyle(fontSize: 21)),
+                          ),
+                        ),
+                      ],
+                    ),
+                  )),
+              SizedBox(height: 10)
+            ]),
+          ],
+        ),
+      ),
+
+      */
