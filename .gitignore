@@ -1,0 +1,5 @@
+
+#things that come when you compile 
+.dart_tool
+/build
+.DS_Store
