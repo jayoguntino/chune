@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:newapp/screens/NavScreen.dart';
-import 'package:newapp/screens/UserProfile.dart';
+import 'package:newapp/screens/UserScreens/UserProfile.dart';
 import 'package:newapp/screens/globalvariables.dart';
 //import 'Widgets/SongPlaying.dart';
 

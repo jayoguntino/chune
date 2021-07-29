@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:newapp/screens/Home.dart';
 import 'package:newapp/screens/NavScreen.dart';
-import 'Notifications.dart';
-import 'Userprofile.dart';
+import 'UserScreens/Userprofile.dart';
 
 class ShareAChune extends StatefulWidget {
   @override

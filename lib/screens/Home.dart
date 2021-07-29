@@ -1,7 +1,7 @@
 ///import 'package:spotify_sdk/spotify_sdk.dart';
 import 'package:flutter/material.dart';
 import 'package:newapp/screens/Player.dart';
-import 'package:newapp/screens/UserProfile.dart';
+import 'package:newapp/screens/UserScreens/UserProfile.dart';
 import 'package:newapp/screens/ViewAllAccounts.dart';
 import 'package:newapp/screens/Widgets/FollowCard.dart';
 import 'package:newapp/screens/Widgets/Post.dart';
@@ -169,7 +169,7 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Text(
             'chune',
             style: TextStyle(
-                color: Colors.blue, fontWeight: FontWeight.bold, fontSize: 25),
+                color: Colors.pink, fontWeight: FontWeight.bold, fontSize: 25),
           ),
         ),
       ),

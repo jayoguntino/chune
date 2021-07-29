@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:newapp/screens/UserProfile.dart';
+import 'package:newapp/screens/UserScreens/UserProfile.dart';
 import 'package:newapp/screens/globalvariables.dart';
 
 class SongPlaying extends StatelessWidget {

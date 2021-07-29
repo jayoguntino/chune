@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:newapp/screens/Home.dart';
 import 'package:newapp/screens/Notifications.dart';
 import 'package:newapp/screens/ShareAChune.dart';
-import 'package:newapp/screens/UserProfile.dart';
+import 'package:newapp/screens/UserScreens/UserProfile.dart';
 import 'package:newapp/screens/globalvariables.dart';
 
 ///import 'package:newapp/screens/UserProfile.dart';

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:newapp/screens/Widgets/FollowCard.dart';
 import 'package:newapp/screens/globalvariables.dart';
-import 'Userprofile.dart';
+import 'UserScreens/Userprofile.dart';
 
 class ViewAllAccounts extends StatefulWidget {
   @override
