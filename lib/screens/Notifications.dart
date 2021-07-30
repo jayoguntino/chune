@@ -77,7 +77,7 @@ class _Notifications extends State<Notifications> {
           child: Text(
             'chune',
             style: TextStyle(
-                color: Colors.blue, fontWeight: FontWeight.bold, fontSize: 25),
+                color: Colors.pink, fontWeight: FontWeight.bold, fontSize: 25),
           ),
         ),
       ),
