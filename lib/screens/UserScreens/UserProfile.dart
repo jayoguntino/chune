@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:newapp/screens/NavScreen.dart';
+import 'package:newapp/screens/UserScreens/EditProfileScreen.dart';
 //import 'Home.dart';
 //import 'Notifications.dart';
 import '../Home.dart';
@@ -287,7 +288,13 @@ class _UserProfile extends State<UserProfile> {
                             child: TextButton(
                               child: Text('Edit Profile',
                                   style: TextStyle(fontSize: 21)),
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => EditProfile()),
+                                );
+                              },
                             ),
                           ),
                         ],

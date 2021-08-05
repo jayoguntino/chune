@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
-//import 'package:spotify_sdk/spotify_sdk.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+//import 'package:newapp/screens/NavScreen.dart';
+import 'package:spotify_sdk/spotify_sdk.dart';
 
 class Login extends StatefulWidget {
   @override
@@ -8,6 +11,8 @@ class Login extends StatefulWidget {
 }
 
 class _LoginScreen extends State<Login> {
+
+ var varName = dotenv.env['VAR_NAME'];
 
 
   @override
@@ -61,13 +66,17 @@ class _LoginScreen extends State<Login> {
                   ),
                 ],
               ),
-              //onTap: getAuthenticationToken,
-              // onTap: () {
-              // Navigator.push(
-              //    context,
-              //  MaterialPageRoute(builder: (context) => NavScreen()),
-              //  );
-              //},
+              onTap: getAuthenticationToken,
+              //  onTap: () {
+
+              //    print(varName);
+
+
+              // // Navigator.push(
+              // //     context,
+              // // MaterialPageRoute(builder: (context) => NavScreen()),
+              // //   );
+              // },
             ),
             SizedBox(height: 10),
             Stack(
@@ -103,8 +112,9 @@ class _LoginScreen extends State<Login> {
     );
   }
 
-/*
+
   Future<String> getAuthenticationToken() async {
+  print(dotenv.env['CLIENT_ID']);
     try {
       //connectToSpotifyRemote();
       var authenticationToken = await SpotifySdk.getAuthenticationToken(
@@ -114,30 +124,25 @@ class _LoginScreen extends State<Login> {
               'user-modify-playback-state, '
               'playlist-read-private, '
               'playlist-modify-public,user-read-currently-playing');
-      setStatus('Got a token: $authenticationToken');
+      print('Got a token: $authenticationToken');
       print(authenticationToken);
       return authenticationToken;
     } on PlatformException catch (e) {
-      setStatus(e.code, message: e.message);
+      // print(e.code, message: e.message);
+      print(e);
       return Future.error('$e.code: $e.message');
     } on MissingPluginException {
-      setStatus('not implemented');
+      print('not implemented');
       return Future.error('not implemented');
     }
-
-    
   }
 
 
 
-  void setStatus(String code, {String message}) {
-    var text = message ?? '';
-    _logger.i('$code$text');
-  }
-
-  */
-
-
+  // void setStatus(String code, {String message}) {
+  //   var text = message ?? '';
+  //   _logger.i('$code$text');
+  // }
 
 
 }

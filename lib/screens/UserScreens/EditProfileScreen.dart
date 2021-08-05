@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:newapp/screens/UserScreens/LikedChunes.dart';
 import 'UserProfile.dart';
 
 class EditProfile extends StatefulWidget {
@@ -44,7 +44,12 @@ class _EditProfile extends State<EditProfile> {
       body: Column(children: [
         InkWell(
           splashColor: Colors.white,
-          onTap: () {},
+          onTap: () {
+              Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => LikedChunes()),
+                    );
+          },
           child: Padding(
             padding: const EdgeInsets.all(16.0),
             child: Row(
