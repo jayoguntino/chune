@@ -1,9 +1,13 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter/widgets.dart';
+// import 'package:flutter/widgets.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-//import 'package:newapp/screens/NavScreen.dart';
+
 import 'package:spotify_sdk/spotify_sdk.dart';
+//import 'package:newapp/screens/NavScreen.dart';
+// import 'package:spotify_sdk/spotify_sdk.dart';
 
 class Login extends StatefulWidget {
   @override
@@ -11,9 +15,9 @@ class Login extends StatefulWidget {
 }
 
 class _LoginScreen extends State<Login> {
-
- var varName = dotenv.env['VAR_NAME'];
-
+  var clientId = dotenv.env['CLIENT_ID'];
+  var clientSecret = dotenv.env['CLIENT_SECRET'];
+  var redirectURL = dotenv.env['REDIRECT_URL'];
 
   @override
   Widget build(BuildContext context) {
@@ -66,17 +70,11 @@ class _LoginScreen extends State<Login> {
                   ),
                 ],
               ),
-              onTap: getAuthenticationToken,
-              //  onTap: () {
-
-              //    print(varName);
-
-
-              // // Navigator.push(
-              // //     context,
-              // // MaterialPageRoute(builder: (context) => NavScreen()),
-              // //   );
-              // },
+              onTap: () {
+                getAuthToken();
+                // print('the auth token is: $authToken');
+                // print(getAuthToken);
+              },
             ),
             SizedBox(height: 10),
             Stack(
@@ -92,7 +90,11 @@ class _LoginScreen extends State<Login> {
                         borderRadius: BorderRadius.circular(7.0),
                       ),
                     ),
-                    onTap: () {},
+                    onTap: () async {
+                      String authToken = await getAuthToken();
+
+                      print((' the auth token is $authToken'));
+                    },
                   ),
                 ),
                 Positioned(
@@ -112,37 +114,31 @@ class _LoginScreen extends State<Login> {
     );
   }
 
+  printTheString() {}
 
-  Future<String> getAuthenticationToken() async {
-  print(dotenv.env['CLIENT_ID']);
+  Future<String> getAuthToken() async {
+    print(dotenv.env['CLIENT_ID']);
+    print(dotenv.env['CLIENT_SECRET']);
     try {
-      //connectToSpotifyRemote();
+      // connectToSpotifyRemote();
       var authenticationToken = await SpotifySdk.getAuthenticationToken(
-          clientId: dotenv.env['CLIENT_ID'].toString(),
-          redirectUrl: dotenv.env['REDIRECT_URL'].toString(),
+          clientId: dotenv.env['CLIENT_ID'],
+          redirectUrl: dotenv.env['REDIRECT_URL'],
           scope: 'app-remote-control, '
               'user-modify-playback-state, '
               'playlist-read-private, '
               'playlist-modify-public,user-read-currently-playing');
-      print('Got a token: $authenticationToken');
-      print(authenticationToken);
+
+      log('Got a token: $authenticationToken');
+
       return authenticationToken;
     } on PlatformException catch (e) {
       // print(e.code, message: e.message);
-      print(e);
+      print(e.code);
       return Future.error('$e.code: $e.message');
     } on MissingPluginException {
       print('not implemented');
       return Future.error('not implemented');
     }
   }
-
-
-
-  // void setStatus(String code, {String message}) {
-  //   var text = message ?? '';
-  //   _logger.i('$code$text');
-  // }
-
-
 }
