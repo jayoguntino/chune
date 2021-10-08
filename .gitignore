@@ -1,4 +1,5 @@
 .packages
+.env
 pubspec.lock
 .dart_tool/package_config_subset
 .dart_tool/package_config.json
