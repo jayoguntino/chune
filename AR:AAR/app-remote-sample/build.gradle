@@ -96,6 +96,10 @@ repositories {
 }
 
 dependencies {
+    implementation project(':spotify-app-remote')
+    implementation project(':spotify-auth')
+    implementation "com.google.code.gson:gson:2.8.5"
+
     implementation files('../app-remote-lib/spotify-app-remote-release-0.7.0.aar')
 
     implementation "androidx.appcompat:appcompat:$appCompatVersion"

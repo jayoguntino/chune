@@ -1,0 +1,2 @@
+de/minimalme/spotify_sdk/BuildConfig.java
+ de.minimalme.spotify_sdk.BuildConfig

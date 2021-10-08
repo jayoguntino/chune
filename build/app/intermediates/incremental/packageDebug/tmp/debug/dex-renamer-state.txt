@@ -1,0 +1,4 @@
+#Fri Oct 08 11:58:44 CEST 2021
+base.0=/Users/dave/Documents/Development/Work/Chune/build/app/intermediates/dex/debug/mergeDexDebug/classes.dex
+path.0=classes.dex
+renamed.0=classes.dex
